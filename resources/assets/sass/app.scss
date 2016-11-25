@@ -1,0 +1,181 @@
+
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
+@import "node_modules/font-awesome/scss/font-awesome";
+
+:root {
+    --font: 'Titillium Web', sans-serif;
+    --font-size: 15px;
+
+    --bg-color: #222222;
+    --font-color: #ccc;
+    --font-weight: 400;
+    --header-font-weight: 300;
+    --link-color: #aac8f2;
+
+    --border-color: #7c8ea6;
+    --header-border-color: #3e4145;
+
+    --list-padding: 15px;
+}
+
+body {
+    font-family: var(--font);
+    font-size: var(--font-size);
+    background-color: var(--bg-color);
+    color: var(--font-color);
+    font-weight: var(--font-weight);
+    padding: 0px;
+    margin: 0px;
+}
+
+body, html {
+    height: 100%;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding-left: var(--list-padding);
+}
+
+li:before {
+    content: "\f0da"; 
+    font-family: FontAwesome;
+    display: inline-block;
+    margin-left: -var(--list-padding);
+    width: var(--list-padding);
+}
+
+div#app, div.container {
+    height: 100%;
+}
+
+div.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+p {
+    padding: 5px 0px;
+    margin: 0px;
+}
+
+div.my-projects {
+    flex: 1;
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    max-width: 500px;
+}
+
+h1, h2, h3 {
+    font-weight: var(--header-font-weight);
+    padding: 0px;
+    margin: 0px;
+}
+
+h1 {
+    font-size: 24px;
+    color: #eee;
+}
+
+
+h2 {
+    font-size: 20px;
+    color: #b8c6d9;
+}
+
+h2:not(.my-title) {
+    border-bottom: 1px solid var(--header-border-color);
+    margin-bottom: 10px;
+}
+
+h2.my-title {
+    border-top: 1px solid var(--border-color);
+}
+
+div.side-header {
+    font-size: var(--font-size);
+    padding-top: 5px;
+}
+
+h3 {
+    font-size: 18px;
+    border-bottom: 1px solid var(--header-border-color);
+}
+
+div.content-area {
+    padding: 10px;
+}
+
+div.my-info {
+    width: 200px;
+}
+
+p.code {
+    font-family: 'Ubuntu Mono', monospace;
+}
+
+.vim {
+    color: #fff;
+}
+
+div.quote {
+    height: 150px;
+}
+
+.center {
+    text-align: center;
+}
+
+div.project {
+    padding: 10px 0px;
+}
+
+div.project-sub-header {
+    background-color: rgba(255,255,255,0.05);
+    padding: 2px 5px;
+}
+
+div.project-description {
+    padding-top: 10px;
+}
+
+div.skill-caret {
+    padding: 0px 8px;
+}
+
+div.skill-name {
+    padding-right: 15px;
+}
+
+div.skill-list {
+    padding-bottom: 10px;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-grow {
+    flex: 1;
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .1s ease-out, transform .1s ease-out;
+}
+
+.fade-enter, .fade-leave-active {
+    opacity: 0
+}
+
