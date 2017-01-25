@@ -3,67 +3,73 @@
 
     <div class="content">
 
-        <div class="my-info content-area">
-            <div class="center">
-                <h1 class="my-name">Mike Minckler</h1>
-                <h2 class="my-title"> Web Developer</h2>
-                <p>mikeminckler@gmail.com</p>
-                <p><a href="https://github.com/mikeminckler" target="_blank">github <i class="fa fa-github"></i> mikeminckler</a></p>
-            </div>
-            <ul>
-                <li>15 years experience</li>
-                <li>Full stack programmer</li>
-            </ul>
-
-            <div class="center quote">
-                <p>- Always learning -</p>
-                <p class="code">I code with <span class="vim">vim</span></p>
-            </div>
-
-            <h3>Other Talents</h3>
-            <ul>
-                <li>Video production</li>
-                <li>Photography</li>
-                <li>Graphic design</li>
-                <li>3D animation</li>
-            </ul>
-        </div>
-
-        <div class="my-projects content-area">
-
-            <h2>My Work</h2>
-
-            <div class="project" v-for="project in projects">
-                <h3 class="project-name">{{ project.name }}</h3>
-                <div class="flex project-sub-header">
-                    <div class="project-website flex-grow"><a :href="project.website" target="_blank">{{ project.website }}</a></div>
-                    <div class="project-dates">{{ project.dates }}</div>
+        <div :class="{hidden: loading}" class="content-container my-info-container">
+            <div class="my-info content-area">
+                <div class="center">
+                    <h1 class="my-name">Mike Minckler</h1>
+                    <h2 class="my-title"> Web Developer</h2>
+                    <p>mikeminckler@gmail.com</p>
+                    <p><a href="https://github.com/mikeminckler" target="_blank">github <i class="fa fa-github"></i> mikeminckler</a></p>
                 </div>
-                <div class="project-description">{{ project.description }}</div>
+                <ul>
+                    <li>15 years experience</li>
+                    <li>Full stack programmer</li>
+                </ul>
+
+                <div class="center quote">
+                    <p>- Always learning -</p>
+                    <p class="code">I code with <span class="vim">vim</span></p>
+                </div>
+
+                <h3>Other Talents</h3>
+                <ul>
+                    <li>Video production</li>
+                    <li>Photography</li>
+                    <li>Graphic design</li>
+                    <li>3D animation</li>
+                </ul>
+            </div>
+        </div>
+
+        <div :class="{hidden: loading}" class="content-container my-projects-container">
+            <div class="my-projects content-area">
+
+                <h2>My Work</h2>
+
+                <div class="project" v-for="project in projects">
+                    <h3 class="project-name">{{ project.name }}</h3>
+                    <div class="flex project-sub-header">
+                        <div class="project-website flex-grow"><a :href="project.website" target="_blank">{{ project.website }}</a></div>
+                        <div class="project-dates">{{ project.dates }}</div>
+                    </div>
+                    <div class="project-description">{{ project.description }}</div>
+                </div>
             </div>
 
         </div>
 
-        <div class="my-skils content-area">
+        <div :class="{hidden: loading}" class="content-container my-skills-container">
+            <div class="my-skills content-area">
 
-            <h2 class="flex header">
-                <div class="flex-grow">Knowledge</div>
-                <div class="side-header">Since</div>
-            </h2>
+                <h2 class="flex header">
+                    <div class="flex-grow">Knowledge</div>
+                    <div class="side-header">Since</div>
+                </h2>
 
-            <div v-for="skill in skills">
-                <h3>{{ skill.name }}</h3>
-                <div class="skill-list">
-                    <div class="flex" v-for="item in skill.items">
-                        <div class="skill-caret">
-                            <div class="fa fa-caret-right"></div>
+                <div v-for="skill in skills">
+                    <h3>{{ skill.name }}</h3>
+                    <div class="skill-list">
+                        <div class="flex" v-for="item in skill.items">
+                            <div class="skill-caret">
+                                <div class="fa fa-caret-right"></div>
+                            </div>
+                            <div class="skill-name flex-grow">{{ item.name }}</div>
+                            <div class="skill-exp">{{ item.exp }}</div>
                         </div>
-                        <div class="skill-name flex-grow">{{ item.name }}</div>
-                        <div class="skill-exp">{{ item.exp }}</div>
                     </div>
                 </div>
-            </div>
 
+            </div>
         </div>
 
     </div>
@@ -79,6 +85,7 @@
 
         data: function () {
             return {
+                loading: true,
                 projects: {
                     1: {
                         name: 'BlueHealth Inc',
@@ -224,7 +231,11 @@
         },
 
         mounted () {
-            //
+            var vue = this;
+            setTimeout(function() {
+                console.log(this);
+                vue.loading = false;
+            }, 100);
         },
 
         methods: {

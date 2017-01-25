@@ -71,13 +71,6 @@ p {
     margin: 0px;
 }
 
-div.my-projects {
-    flex: 1;
-    border-left: 1px solid var(--border-color);
-    border-right: 1px solid var(--border-color);
-    max-width: 500px;
-}
-
 h1, h2, h3 {
     font-weight: var(--header-font-weight);
     padding: 0px;
@@ -118,8 +111,40 @@ div.content-area {
     padding: 10px;
 }
 
+div.content-container.hidden {
+    width: 0px;
+}
+
+div.content-container {
+    transition: width 1s;
+    overflow: hidden;
+}
+
+div.my-info-container {
+    width: 220px;
+}
+
+div.my-projects-container {
+    width: 522px;
+}
+
+div.my-skills-container {
+    width: 270px;
+}
+
 div.my-info {
     width: 200px;
+}
+
+div.my-projects {
+    flex: 1;
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    width: 500px;
+}
+
+div.my-skills {
+    width: 250px;
 }
 
 p.code {
